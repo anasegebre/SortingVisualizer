@@ -83,8 +83,8 @@ public class Sorts {
 				j++;
 			}
 		} while (i < mid) {
-			temp.add(arr.get(j));
-			j++;
+			temp.add(arr.get(i));
+			i++;
 		} while (j < hi) {
 			temp.add(arr.get(j));
 			j++;
@@ -94,9 +94,9 @@ public class Sorts {
 	}
 
 	private static <T extends Comparable<T>> int partition(ArrayList<T> arr, int lo, int hi, int pivotIndex, ArrayList<SortEvent<T>> event) {
-		SortEvent<T> swapEvent = new SwapEvent<T>(lo + pivotIndex, hi);
+		SortEvent<T> swapEvent = new SwapEvent<T>(pivotIndex, hi);
 		event.add(swapEvent);
-		swap(arr, lo + pivotIndex, hi);
+		swap(arr, pivotIndex, hi);
 		int i = lo;
 		int  j = hi - 1;
 		while(i <= j) {
@@ -131,7 +131,7 @@ public class Sorts {
 		return i;
 	}
 	public static <T extends Comparable<T>> void quickSortHelper(ArrayList<T> arr, int lo, int hi, ArrayList<SortEvent<T>> event) {
-		if (lo == hi) { //?? == or >=
+		if (lo >= hi) { //?? == or >=
 			return; 
 		} else {
 			Random rand = new Random();
