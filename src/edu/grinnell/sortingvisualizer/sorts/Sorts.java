@@ -17,6 +17,7 @@ public class Sorts {
 		arr.set(b,  temp);
 	}
 
+	//selectionSort
 	public static <T extends Comparable<T>> ArrayList<SortEvent<T>> selectionSort(ArrayList<T> arr) {
 		ArrayList<SortEvent<T>> event = new ArrayList<SortEvent<T>>();
 		for (int i = 0; i < arr.size(); i ++) {
@@ -35,6 +36,7 @@ public class Sorts {
 		return event;
 	}
 
+	//insertionSort
 	public static <T extends Comparable<T>> ArrayList<SortEvent<T>> insertionSort(ArrayList<T> arr) {
 		ArrayList<SortEvent<T>> event = new ArrayList<SortEvent<T>>();
 		for (int i = 0; i < arr.size(); i++) {
@@ -51,6 +53,7 @@ public class Sorts {
 		return event;
 	}
 
+	//mergeSort
 	public static <T extends Comparable<T>> ArrayList<SortEvent<T>> mergeSort(ArrayList<T> arr) {
 		ArrayList<SortEvent<T>> event = new ArrayList<>();
 		mergeSortHelper(arr, 0, arr.size(), event);
@@ -93,6 +96,13 @@ public class Sorts {
 		}
 	}
 
+	//quickSort
+    public static <T extends Comparable<T>> ArrayList<SortEvent<T>> quickSort(ArrayList<T> arr) {
+        ArrayList<SortEvent<T>> event = new ArrayList<SortEvent<T>>();
+        quickSortHelper(arr, 0, arr.size() - 1, event);
+        return event;
+    }
+    
 	private static <T extends Comparable<T>> int partition(ArrayList<T> arr, int lo, int hi, int pivotIndex, ArrayList<SortEvent<T>> event) {
 		SortEvent<T> swapEvent = new SwapEvent<T>(pivotIndex, hi);
 		event.add(swapEvent);
@@ -142,12 +152,21 @@ public class Sorts {
 
 		}
 	}
+	
+	//bubbleSort
+    public static <T extends Comparable<T>> void bubbleSort(ArrayList<T> l){
+        T temp;
+        for(int i = 0; i < l.size(); i++) {
+            for(int j = 1; j< l.size() - i; j++)
+            if((l.get(j - 1).compareTo(l.get(j)) > 0)) {
+              temp = l.get(j - 1);
+              l.set(j - 1, l.get(j));
+              l.set(j, temp);
+           }
+        }
+     }
+    
 
-	public static <T extends Comparable<T>> ArrayList<SortEvent<T>> quickSort(ArrayList<T> arr) {
-		ArrayList<SortEvent<T>> event = new ArrayList<SortEvent<T>>();
-		quickSortHelper(arr, 0, arr.size() - 1, event);
-		return event;
-	}
 	public static <T extends Comparable<T>> List<SortEvent<T>> customSort(T[] arr) {
 		// TODO: implement your own custom sort
 		return null;
