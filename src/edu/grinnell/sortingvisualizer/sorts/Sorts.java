@@ -20,7 +20,7 @@ public class Sorts {
     // selectionSort
     public static <T extends Comparable<T>> ArrayList<SortEvent<T>> selectionSort(ArrayList<T> arr) {
         ArrayList<SortEvent<T>> event = new ArrayList<SortEvent<T>>();
-        for (int i = 0; i < arr.size(); i++) {
+        for (int i = 0; i < arr.size() - 1; i++) {
             int index = i;
             for (int k = i + 1; k < arr.size(); k++) {
                 SortEvent<T> compareEvent = new CompareEvent<T>(k, index);
@@ -108,43 +108,26 @@ public class Sorts {
         return event;
     }
 
-    private static <T extends Comparable<T>> int partition(ArrayList<T> arr, int lo, int hi, int pivotIndex,
-            ArrayList<SortEvent<T>> event) {
-        SortEvent<T> swapEvent = new SwapEvent<T>(pivotIndex, hi);
-        event.add(swapEvent);
-        swap(arr, pivotIndex, hi);
-        int i = lo;
-        int j = hi - 1;
-        while (i <= j) {
-            while (arr.get(i).compareTo(arr.get(hi)) < 0) {
-                SortEvent<T> compareEvent = new CompareEvent<T>(i, hi);
-                event.add(compareEvent);
-                i++;
-                if (i > (hi - 1)) {
-                    break;
+    public static <T extends Comparable<T>> int partition(ArrayList<T> l, int lo, int hi, int pivotIndex) {
+        {
+            swap(l, pivotIndex, hi);
+            int j = hi;
+            int i = lo;
+
+            while (i != j) {
+                {
+                    while (l.get(i).compareTo(l.get(hi)) < 0) {
+                        i++;
+                    }
+                    while (i != j && l.get(j).compareTo(l.get(hi)) >= 0) {
+                        j--;
+                    }
+                    swap(l, i, j);
                 }
             }
-            SortEvent<T> compareEvent = new CompareEvent<T>(i, hi);
-            event.add(compareEvent);
-            while (arr.get(j).compareTo(arr.get(hi)) > 0) {
-                compareEvent = new CompareEvent<T>(j, hi);
-                j--;
-                if (j < lo) {
-                    break;
-                }
-            }
-            compareEvent = new CompareEvent<T>(j, hi);
-            event.add(compareEvent);
-            if (j >= i) {
-                swapEvent = new SwapEvent<T>(i++, hi--);
-                event.add(swapEvent);
-                swap(arr, i++, j--);
-            }
+            swap(l, hi, i);
+            return i;
         }
-        swapEvent = new SwapEvent<T>(i, hi);
-        event.add(swapEvent);
-        swap(arr, i, hi);
-        return i;
     }
 
     public static <T extends Comparable<T>> void quickSortHelper(ArrayList<T> arr, int lo, int hi,
@@ -154,7 +137,7 @@ public class Sorts {
         } else {
             Random rand = new Random();
             int pivotIndex = rand.nextInt(hi - lo) + lo;
-            int mid = partition(arr, lo, hi, pivotIndex, event);
+            int mid = partition(arr, lo, hi, pivotIndex);
             quickSortHelper(arr, lo, mid - 1, event);
             quickSortHelper(arr, mid + 1, hi, event);
 
