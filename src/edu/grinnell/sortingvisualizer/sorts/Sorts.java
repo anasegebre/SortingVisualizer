@@ -11,6 +11,12 @@ import edu.grinnell.sortingvisualizer.sortevents.SwapEvent;
 
 public class Sorts {
 
+	/**
+	 * 
+	 * @param arr an ArrayList<T>
+	 * @param a an integer
+	 * @param b an integer
+	 */
     public static <T extends Comparable<T>> void swap(ArrayList<T> arr, int a, int b) {
         T temp = arr.get(a);
         arr.set(a, arr.get(b));
@@ -18,6 +24,11 @@ public class Sorts {
     }
 
     // selectionSort
+    /**
+     * 
+     * @param arr an ArrayList<T>
+     * @return a List of SortEvents
+     */
     public static <T extends Comparable<T>> List<SortEvent<T>> selectionSort(ArrayList<T> arr) {
         List<SortEvent<T>> event = new ArrayList<>();
         for (int i = 0; i < arr.size() - 1; i++) {
@@ -35,6 +46,11 @@ public class Sorts {
     }
 
     // insertionSort
+    /**
+     * 
+     * @param arr an ArrayList<T>
+     * @return a List of SortEvents
+     */
     public static <T extends Comparable<T>> List<SortEvent<T>> insertionSort(ArrayList<T> arr) {
         List<SortEvent<T>> event = new ArrayList<>();
         for (int i = 0; i < arr.size(); i++) {
@@ -50,12 +66,24 @@ public class Sorts {
     }
 
     // mergeSort
+    /**
+     * 
+     * @param arr an ArrayList<T>
+     * @return a List of SortEvents
+     */
     public static <T extends Comparable<T>> List<SortEvent<T>> mergeSort(ArrayList<T> arr) {
         List<SortEvent<T>> event = new ArrayList<>();
         mergeSortHelper(arr, 0, arr.size(), event);
         return event;
     }
 
+    /**
+     * 
+     * @param arr an ArrayList<T>
+     * @param lo a positive integer
+     * @param hi a positive integer
+     * @param event a List of SortEvents
+     */
     public static <T extends Comparable<T>> void mergeSortHelper(ArrayList<T> arr, int lo, int hi,
             List<SortEvent<T>> event) {
         if (hi - lo <= 1) {
@@ -69,6 +97,14 @@ public class Sorts {
         }
     }
 
+    /**
+     * 
+     * @param arr an ArrayList<T>
+     * @param lo a positive integer
+     * @param mid a positive integer
+     * @param hi a positive integer
+     * @param event a List of SortEvents
+     */
     public static <T extends Comparable<T>> void merge(ArrayList<T> arr, int lo, int mid, int hi,
             List<SortEvent<T>> event) {
         ArrayList<T> temp = new ArrayList<T>();
@@ -99,12 +135,26 @@ public class Sorts {
     }
 
     // quickSort
+    /**
+     * 
+     * @param arr an ArrayList<T>
+     * @return a List of SortEvents
+     */
     public static <T extends Comparable<T>> List<SortEvent<T>> quickSort(ArrayList<T> arr) {
         List<SortEvent<T>> event = new ArrayList<>();
         quickSortHelper(arr, 0, arr.size() - 1, event);
         return event;
     }
 
+    /**
+     * 
+     * @param l an ArrayList<T>
+     * @param lo a positive integer
+     * @param hi a positive integer
+     * @param pivotIndex a positive integer
+     * @param event a List of SortEvents
+     * @return i a positive integer
+     */
     public static <T extends Comparable<T>> int partition(ArrayList<T> l, int lo, int hi, int pivotIndex,
             List<SortEvent<T>> event) {
         {
@@ -133,6 +183,13 @@ public class Sorts {
         }
     }
 
+    /**
+     * 
+     * @param arr an ArrayList<T>
+     * @param lo a positive integer
+     * @param hi a positive integer
+     * @param event a List of SortEvents
+     */
     public static <T extends Comparable<T>> void quickSortHelper(ArrayList<T> arr, int lo, int hi,
             List<SortEvent<T>> event) {
         if (lo >= hi) {
@@ -148,6 +205,11 @@ public class Sorts {
     }
 
     // bubbleSort
+    /**
+     * 
+     * @param l an ArrayList<T>
+     * @return a List of SortEvents
+     */
     public static <T extends Comparable<T>> List<SortEvent<T>> bubbleSort(ArrayList<T> l) {
         List<SortEvent<T>> event = new ArrayList<>();
         for (int i = 0; i < l.size(); i++) {
@@ -163,6 +225,11 @@ public class Sorts {
     }
 
     // shellSort
+    /**
+     * 
+     * @param l an ArrayList<T>
+     * @return a List of SortEvents
+     */
     public static <T extends Comparable<T>> List<SortEvent<T>> shellSort(ArrayList<T> l) {
         List<SortEvent<T>> event = new ArrayList<>();
         int j;
@@ -186,6 +253,11 @@ public class Sorts {
     }
 
     // eventSort
+    /**
+     * 
+     * @param l an  ArrayList<T>
+     * @param events a List of SortEvents
+     */
     public static <T> void eventSort(ArrayList<T> l, List<SortEvent<T>> events) {
         for (int i = 0; i < events.size(); i++) {
             events.get(i).apply(l);
