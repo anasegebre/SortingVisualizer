@@ -12,7 +12,7 @@ public class SwapEvent<T> implements SortEvent<T> {
 		indices.add(k);
 	}
 	
-	public void apply(ArrayList<T> arr) {
+	public void apply(List<T> arr) {
 		T temp = arr.get(indices.get(0));
 		arr.set(indices.get(0), arr.get(indices.get(1)));
 		arr.set(indices.get(1), temp);

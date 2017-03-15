@@ -12,7 +12,7 @@ public class CompareEvent<T> implements SortEvent<T> {
 		indices.add(k);
 	}
 	
-	public void apply(ArrayList<T> arr) {
+	public void apply(List<T> arr) {
 		return;
 	}
 

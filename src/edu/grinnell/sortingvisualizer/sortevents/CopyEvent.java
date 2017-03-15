@@ -8,13 +8,13 @@ public class CopyEvent<T> implements SortEvent<T>{
 	public ArrayList<T> list;
 	public List<Integer> indices;
 	
-	public CopyEvent(T val, int n) { //?
+	public CopyEvent(int index, T element) {
 		indices = new ArrayList<Integer>();
-		indices.add(n);
+		indices.add(index);
 	}
 	
-	public void apply(ArrayList<T> arr) {
-		arr.add(list.get(indices.get(0)));	//??
+	public void apply(List<T> arr) {
+		arr.add(list.get(indices.get(0)));
 	}
 
 	public List<Integer> getAffectedIndices() {

@@ -1,12 +1,10 @@
-package edu.grinnell.sortingvisualizer;
+package edu.grinnell.sortingvisualizer.sorts;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
-
-import edu.grinnell.sortingvisualizer.sorts.Sorts;
 
 public class SortsTest {
 
@@ -317,5 +315,37 @@ public class SortsTest {
         assertEquals(oneUnsrt, oneSrt);
         assertEquals(emptyUnsrt, emptySrt);
     }
+    
+    @Test
+    public void selectionEventTest() {
+    	
+    }
+    
+    @Test
+    public void insertionEventTest() {
+    	
+    }
+    
+    @Test
+    public void mergeEventTest() {
+    	
+    }
+    
+    @Test
+    public void quickEventTest() {
+    	
+    }
+    
+    @Test
+    public void bubbleEventTest() {
+    	
+    }
+    
+    @Test
+    public void shellEventTest() {
+    	
+    }
+    
+    
     
 }
