@@ -1,23 +1,26 @@
 package edu.grinnell.sortingvisualizer.sortevents;
 import java.util.ArrayList;
-import java.util.List;
 
-public class CompareEvent<T> implements SortEvent<T> {
 
-	public List<Integer> indices;
+public class CompareEvent<T extends Comparable<T>> implements SortEvent<T> {
+
+	private int n;
+	private int k;
 	
 	public CompareEvent(int n, int k) {
-		indices = new ArrayList<Integer>();
-		indices.add(n);
-		indices.add(k);
+		this.n = n;
+		this.k = k;
 	}
 	
-	public void apply(List<T> arr) {
-		return;
+	public void apply(ArrayList<T> arr) {
+		arr.get(n).compareTo(arr.get(k));
 	}
 
-	public List<Integer> getAffectedIndices() {
-		return this.indices;
+	public ArrayList<Integer> getAffectedIndices() {
+	    ArrayList<Integer> ret = new ArrayList<>();
+        ret.add(n);
+        ret.add(k);
+        return ret;
 	}
 
 	public boolean isEmphasized() {

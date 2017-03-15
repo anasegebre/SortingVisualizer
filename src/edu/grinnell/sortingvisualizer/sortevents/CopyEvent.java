@@ -1,24 +1,26 @@
 package edu.grinnell.sortingvisualizer.sortevents;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class CopyEvent<T> implements SortEvent<T>{
 
-	public ArrayList<T> list;
-	public List<Integer> indices;
+	private int i;
+	private T value;
 	
-	public CopyEvent(int index, T element) {
-		indices = new ArrayList<Integer>();
-		indices.add(index);
+	public CopyEvent(int i, T value) {
+		this.i = i;
+		this.value = value;
 	}
 	
-	public void apply(List<T> arr) {
-		arr.add(list.get(indices.get(0)));
+	public void apply(ArrayList<T> arr) {
+		arr.set(i, value);
 	}
 
-	public List<Integer> getAffectedIndices() {
-		return null;
+	public ArrayList<Integer> getAffectedIndices() {
+		ArrayList<Integer> ret = new ArrayList<>();
+		ret.add(i);
+		return ret;
 	}
 
 	public boolean isEmphasized() {
