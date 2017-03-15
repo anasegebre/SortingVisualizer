@@ -318,32 +318,135 @@ public class SortsTest {
     
     @Test
     public void selectionEventTest() {
-    	
+        ArrayList<Integer> descendUnsrt = new ArrayList<>();
+        descendUnsrt.add(100);
+        descendUnsrt.add(80);
+        descendUnsrt.add(70);
+        descendUnsrt.add(5);
+        descendUnsrt.add(4);
+        ArrayList<Integer> descendUnsrt1 = (ArrayList<Integer>) descendUnsrt.clone();
+
+        ArrayList<Integer> descendSrt = new ArrayList<>();
+        descendSrt.add(4);
+        descendSrt.add(5);
+        descendSrt.add(70);
+        descendSrt.add(80);
+        descendSrt.add(100);
+        
+        Sorts.eventSort(descendUnsrt1, Sorts.selectionSort(descendUnsrt));
+        
+        assertEquals(descendUnsrt1, descendSrt);
+
     }
     
     @Test
     public void insertionEventTest() {
-    	
+        ArrayList<Integer> descendUnsrt = new ArrayList<>();
+        descendUnsrt.add(100);
+        descendUnsrt.add(80);
+        descendUnsrt.add(70);
+        descendUnsrt.add(5);
+        descendUnsrt.add(4);
+        ArrayList<Integer> descendUnsrt1 = (ArrayList<Integer>) descendUnsrt.clone();
+
+        ArrayList<Integer> descendSrt = new ArrayList<>();
+        descendSrt.add(4);
+        descendSrt.add(5);
+        descendSrt.add(70);
+        descendSrt.add(80);
+        descendSrt.add(100);
+        
+        Sorts.eventSort(descendUnsrt1, Sorts.insertionSort(descendUnsrt));
+        
+        assertEquals(descendUnsrt1, descendSrt);
     }
     
     @Test
     public void mergeEventTest() {
-    	
+        ArrayList<Integer> descendUnsrt = new ArrayList<>();
+        descendUnsrt.add(100);
+        descendUnsrt.add(80);
+        descendUnsrt.add(70);
+        descendUnsrt.add(5);
+        descendUnsrt.add(4);
+        ArrayList<Integer> descendUnsrt1 = (ArrayList<Integer>) descendUnsrt.clone();
+
+        ArrayList<Integer> descendSrt = new ArrayList<>();
+        descendSrt.add(4);
+        descendSrt.add(5);
+        descendSrt.add(70);
+        descendSrt.add(80);
+        descendSrt.add(100);
+        
+        Sorts.eventSort(descendUnsrt1, Sorts.mergeSort(descendUnsrt));
+        
+        assertEquals(descendUnsrt1, descendSrt);
     }
     
     @Test
     public void quickEventTest() {
-    	
+        ArrayList<Integer> descendUnsrt = new ArrayList<>();
+        descendUnsrt.add(100);
+        descendUnsrt.add(80);
+        descendUnsrt.add(70);
+        descendUnsrt.add(5);
+        descendUnsrt.add(4);
+        ArrayList<Integer> descendUnsrt1 = (ArrayList<Integer>) descendUnsrt.clone();
+
+        ArrayList<Integer> descendSrt = new ArrayList<>();
+        descendSrt.add(4);
+        descendSrt.add(5);
+        descendSrt.add(70);
+        descendSrt.add(80);
+        descendSrt.add(100);
+        
+        Sorts.eventSort(descendUnsrt1, Sorts.quickSort(descendUnsrt));
+        
+        assertEquals(descendUnsrt1, descendSrt);
     }
     
     @Test
     public void bubbleEventTest() {
-    	
+        ArrayList<Integer> descendUnsrt = new ArrayList<>();
+        descendUnsrt.add(100);
+        descendUnsrt.add(80);
+        descendUnsrt.add(70);
+        descendUnsrt.add(5);
+        descendUnsrt.add(4);
+        ArrayList<Integer> descendUnsrt1 = (ArrayList<Integer>) descendUnsrt.clone();
+
+        ArrayList<Integer> descendSrt = new ArrayList<>();
+        descendSrt.add(4);
+        descendSrt.add(5);
+        descendSrt.add(70);
+        descendSrt.add(80);
+        descendSrt.add(100);
+        
+        Sorts.eventSort(descendUnsrt1, Sorts.bubbleSort(descendUnsrt));
+        
+        assertEquals(descendUnsrt1, descendSrt);
     }
     
     @Test
     public void shellEventTest() {
-    	
+        ArrayList<Integer> descendUnsrt = new ArrayList<>();
+        descendUnsrt.add(100);
+        descendUnsrt.add(80);
+        descendUnsrt.add(70);
+        descendUnsrt.add(5);
+        descendUnsrt.add(4);
+        ArrayList<Integer> descendUnsrt1 = (ArrayList<Integer>) descendUnsrt.clone();
+
+        ArrayList<Integer> descendSrt = new ArrayList<>();
+        descendSrt.add(4);
+        descendSrt.add(5);
+        descendSrt.add(70);
+        descendSrt.add(80);
+        descendSrt.add(100);
+        
+        Sorts.eventSort(descendUnsrt1, Sorts.bubbleSort(descendUnsrt));
+        
+        assertEquals(descendUnsrt1, descendSrt);
     }
     
     

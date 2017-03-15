@@ -236,7 +236,7 @@ public class Sorts {
 	}
 
 	// eventSort
-	public <T> void eventSort(ArrayList<T> l, List<SortEvent<T>> events) {
+	public static <T> void eventSort(ArrayList<T> l, List<SortEvent<T>> events) {
 		for (int i = 0; i < events.size(); i++) {
 			events.get(i).apply(l);
 		}
