@@ -38,7 +38,7 @@ public class ArrayPanel extends JPanel {
             if (notes.isHighlighted(i)) {
                 g.setColor(Color.MAGENTA);
             } else {
-                g.setColor(new Color(30, 180 - 5 * notes.getNotes().get(i), 150 - 5 * notes.getNotes().get(i)));
+                g.setColor(new Color(30, 250 - 5 * notes.getNotes().get(i), 250 - 5 * notes.getNotes().get(i)));
             }
             g.fillRect(i * width, this.getHeight() - height * (notes.getNotes().get(i) + 1), width,
                     this.getHeight());
