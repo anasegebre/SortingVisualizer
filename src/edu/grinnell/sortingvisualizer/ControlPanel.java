@@ -109,7 +109,8 @@ public class ControlPanel extends JPanel {
            "Insertion",
            "Bubble",
            "Merge",
-           "Quick"
+           "Quick",
+           "Custom"
         });
         add(sorts);
         

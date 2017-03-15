@@ -1,4 +1,5 @@
 package edu.grinnell.sortingvisualizer;
+import java.util.ArrayList;
 
 /**
  * A collection of indices into a Scale object.
@@ -25,7 +26,7 @@ public class NoteIndices {
     }
     
     /** @return the indices of this NoteIndices object */
-    public Integer[] getNotes() { 
+    public ArrayList<Integer> getNotes() { 
         // TODO: fill me in
         return null;
     }
