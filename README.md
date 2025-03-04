@@ -4,6 +4,7 @@
 
     (Section): CSC207-02
     
+    
     (Group members): Ana Segebre, Mujtaba Aslam
     
     (Short description of project): Build a visualizer and audibilizer for several sorting algorithms
